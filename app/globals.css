@@ -12,3 +12,27 @@
 .admin-page{min-height:75vh;background:#f0f1ec;padding:60px 4%}.admin-login{background:white;max-width:430px;margin:30px auto;padding:40px;box-shadow:0 10px 40px #203d2910}.admin-login h1{font:36px 'Playfair Display';margin:0 0 10px}.admin-login p{color:var(--muted);font-size:12px;line-height:1.7}.admin-shell{max-width:1400px;margin:auto;background:white;min-height:650px;display:grid;grid-template-columns:230px 1fr;box-shadow:0 10px 40px #203d2910}.admin-sidebar{background:var(--deep);padding:30px 20px;color:white;display:flex;flex-direction:column;gap:12px}.admin-sidebar>b{font:20px 'Playfair Display';color:var(--gold)}.admin-sidebar small{font-size:8px;letter-spacing:2px;color:#c5d0c4;margin-bottom:30px}.admin-sidebar button{background:transparent;color:#dce5db;border:0;text-align:left;padding:12px;font-size:12px;cursor:pointer}.admin-sidebar button.active{background:#ffffff19;color:white}.admin-sidebar .logout{margin-top:auto}.admin-content{padding:35px;overflow:auto}.admin-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px}.admin-top h1{font:32px 'Playfair Display';margin:0}.admin-table-wrap{overflow:auto}.admin-table{width:100%;border-collapse:collapse;font-size:11px}.admin-table th,.admin-table td{text-align:left;padding:13px;border-bottom:1px solid var(--line);vertical-align:top}.admin-table th{color:var(--green);background:#f7f6f1}.admin-table td small{display:block;color:var(--muted);margin-top:4px}.admin-table button{border:0;background:#e9eee7;color:var(--green);padding:6px 8px;margin:2px;cursor:pointer;font-size:10px}.status-pill{padding:5px 8px;background:#eee;font-size:10px}.status-pill.verified{background:#e4f1e5;color:#28643a}.status-pill.rejected{background:#f8e8e6;color:#8a352d}.empty-state{padding:50px;text-align:center;color:var(--muted);background:#f7f6f1}
 @media(max-width:800px){.nav-links{display:none;position:absolute;top:82px;left:0;right:0;background:var(--cream);padding:22px 6%;flex-direction:column;align-items:stretch;gap:18px;border-bottom:1px solid var(--line)}.nav-links.open{display:flex}.nav-donate{text-align:center}.menu-toggle{display:block}.hero{min-height:620px}.hero-content{padding:85px 0 125px}.hero-note{display:none}.intro,.roadmap,.story-layout,.impact-intro,.get-involved-grid,.donation-layout,.contact-layout{grid-template-columns:1fr;gap:35px}.intro-side{gap:25px}.big-index{font-size:40px}.pillar-grid{grid-template-columns:1fr}.pillar-card{min-height:260px}.roadmap-visual{height:330px}.cta-section{display:block}.cta-links{margin-top:25px;max-width:260px}.footer-grid{grid-template-columns:1fr 1fr}.value-grid{grid-template-columns:1fr 1fr}.founder-grid{grid-template-columns:1fr}.founder-card .portrait-placeholder,.founder-feature .portrait-placeholder{height:210px}.department-grid{grid-template-columns:1fr 1fr}.work-row{grid-template-columns:55px 1fr;gap:15px}.work-number{font-size:30px}.work-row h2{font-size:36px}.page-hero{padding-top:75px;padding-bottom:70px}.section-pad{padding-top:75px;padding-bottom:75px}.admin-shell{grid-template-columns:1fr}.admin-sidebar{flex-direction:row;flex-wrap:wrap;align-items:center}.admin-sidebar small{display:none}.admin-sidebar .logout{margin:0}.admin-content{padding:20px}.admin-top{align-items:flex-start;gap:15px}.admin-top h1{font-size:25px}}
 @media(max-width:480px){.hero h1{font-size:52px}.hero-content>p{font-size:14px}.hero-actions{align-items:flex-start;flex-direction:column;gap:20px}.hero-bottom{font-size:8px;letter-spacing:1px}.footer-grid{grid-template-columns:1fr}.footer-bottom{flex-direction:column;gap:10px}.form-card{padding:23px}.form-grid{grid-template-columns:1fr}.full-field{grid-column:auto}.value-grid{grid-template-columns:1fr}.department-grid{grid-template-columns:1fr 1fr}.transparency-points{grid-template-columns:1fr}.page-hero h1{font-size:48px}}
+
+/* Al-Madar founder and co-founder photographs */
+
+.founder-photo {
+  width: 100%;
+  height: 360px;
+  overflow: hidden;
+  background: #e8dccf;
+  margin-bottom: 24px;
+}
+
+.team-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 25%;
+  display: block;
+}
+
+@media (max-width: 600px) {
+  .founder-photo {
+    height: 320px;
+  }
+}
