@@ -1,0 +1,5 @@
+import Link from "next/link";
+
+export default function FoodPage() {
+  return <main><section className="page-hero pillar-page-hero"><span className="eyebrow light">PLANNED PILLAR · 01</span><h1>Food is dignity.<br/><em>Access is a shared responsibility.</em></h1><p>Supporting access to food and encouraging responsible food practices across communities.</p></section><section className="section-pad pillar-detail"><div><span className="eyebrow">UPCOMING INITIATIVES</span><h2>Food support<br/><em>in development.</em></h2></div><div className="initiative-detail-list">{["Food support and distribution","Food runs","Sustainable food support","Responsible redistribution of safe surplus restaurant food","Water-related initiatives"].map((item,i)=><article key={item}><span>0{i+1}</span><h3>{item}</h3><small>Planned</small></article>)}</div></section><section className="mini-cta"><h2>Help shape responsible food initiatives.</h2><p>Share an idea or express interest in contributing through our community network.</p><Link href="/get-involved" className="button button-dark">Join the community ↗</Link></section></main>;
+}

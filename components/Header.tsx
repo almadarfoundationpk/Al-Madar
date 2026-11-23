@@ -3,7 +3,8 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { usePathname } from "next/navigation";
 
 const links = [
   ["About", "/about"],
@@ -15,9 +16,20 @@ const links = [
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24);
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => setOpen(false), [pathname]);
 
   return (
-    <header className="site-header">
+    <header className={`site-header ${pathname === "/" ? "header-home" : ""} ${scrolled ? "is-scrolled" : ""}`}>
       <div className="nav-wrap">
         <Link
           href="/"
@@ -51,6 +63,7 @@ export default function Header() {
             <Link
               key={href}
               href={href}
+              className={pathname === href ? "nav-active" : ""}
               onClick={() => setOpen(false)}
             >
               {label}

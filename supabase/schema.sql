@@ -40,9 +40,27 @@ create table if not exists public.contact_messages (
   message text not null
 );
 
+create table if not exists public.donation_inquiries (
+  id uuid primary key default gen_random_uuid(),
+  created_at timestamptz not null default now(),
+  name text not null,
+  email text not null,
+  phone text,
+  amount numeric(12,2),
+  campaign text not null,
+  instructions text,
+  anonymous boolean not null default false
+);
+
+alter table public.volunteer_applications add column if not exists organisation text;
+alter table public.volunteer_applications add column if not exists skills text;
+alter table public.volunteer_applications add column if not exists experience text;
+alter table public.volunteer_applications add column if not exists additional text;
+
 alter table public.donations enable row level security;
 alter table public.volunteer_applications enable row level security;
 alter table public.contact_messages enable row level security;
+alter table public.donation_inquiries enable row level security;
 
 -- Public visitors may submit forms but cannot read or update submissions.
 drop policy if exists "public submit donation" on public.donations;
@@ -57,6 +75,10 @@ drop policy if exists "public submit contact message" on public.contact_messages
 create policy "public submit contact message" on public.contact_messages for insert to anon, authenticated
 with check (true);
 
+drop policy if exists "public submit donation inquiry" on public.donation_inquiries;
+create policy "public submit donation inquiry" on public.donation_inquiries for insert to anon, authenticated
+with check (true);
+
 -- Authenticated admin access. Create only Hasham's admin account in Supabase.
 drop policy if exists "admin read donations" on public.donations;
 create policy "admin read donations" on public.donations for select to authenticated using (auth.uid() is not null);
@@ -67,6 +89,8 @@ drop policy if exists "admin read volunteers" on public.volunteer_applications;
 create policy "admin read volunteers" on public.volunteer_applications for select to authenticated using (auth.uid() is not null);
 drop policy if exists "admin read contact messages" on public.contact_messages;
 create policy "admin read contact messages" on public.contact_messages for select to authenticated using (auth.uid() is not null);
+drop policy if exists "admin read donation inquiries" on public.donation_inquiries;
+create policy "admin read donation inquiries" on public.donation_inquiries for select to authenticated using (auth.uid() is not null);
 
 -- Private receipt storage bucket. No public read policy is created.
 insert into storage.buckets (id, name, public, file_size_limit, allowed_mime_types)

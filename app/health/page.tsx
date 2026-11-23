@@ -1,0 +1,5 @@
+import Link from "next/link";
+
+export default function HealthPage() {
+  return <main><section className="page-hero pillar-page-hero"><span className="eyebrow light">PLANNED PILLAR · 03</span><h1>Healthy communities<br/><em>begin with care.</em></h1><p>Supporting community health and encouraging access to essential healthcare initiatives.</p></section><section className="section-pad pillar-detail"><div><span className="eyebrow">UPCOMING INITIATIVES</span><h2>Health initiatives<br/><em>in development.</em></h2></div><div className="initiative-detail-list">{["Voluntary blood donation programmes","Community health awareness","Future healthcare support initiatives"].map((item,i)=><article key={item}><span>0{i+1}</span><h3>{item}</h3><small>Planned</small></article>)}</div></section><section className="mini-cta"><h2>Community health needs thoughtful partnerships.</h2><p>Future programmes may be developed with appropriately licensed hospitals or blood banks.</p><Link href="/contact" className="button button-dark">Contact Al-Madar ↗</Link></section></main>;
+}
